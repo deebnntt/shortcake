@@ -13,7 +13,8 @@ import React, { Component } from 'react'
      return (
        <div className="form-div">
          <form onSubmit={this.props.handleSubmit}>
-           <input type="text" placeholder="Put that absurdly long link here." className="url-field" onChange={this.props.handleInput}/><br/>
+           <input type="text" placeholder="Enter original url here." className="url-field" onChange={this.props.handleURLInput}/><br/>
+           <input type="text" placeholder="Add a custom url (optional)" className="url-field" onChange={this.props.handleCustomInput}/><br/>
            <input type="submit" className="submit-button" value="Create a Shortcake"/>
          </form>
        </div>
