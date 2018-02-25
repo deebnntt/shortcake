@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: pink;
+  background-color: #ffdae0;
   color: red;
   font-family: 'Raleway', sans-serif;
 }
@@ -81,8 +81,7 @@ h3 {
 
 .list {
   margin: auto;
-  width: 40%;
+  width: 35%;
   padding: .5%;
   padding-bottom: 2.5%;
-  background-color: pink;
 }
