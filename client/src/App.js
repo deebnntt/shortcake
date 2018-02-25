@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Form from './components/form.js'
 import './App.css';
-import CryptoJS from 'crypto-js'
 import shortcake from './shortcake.png'
+import { postURL } from './helpers/api';
 
 class App extends Component {
   state = {
@@ -17,6 +17,12 @@ class App extends Component {
       const newpath = atob(path.substring(1))
       window.location.href = `${newpath}`
     }
+  }
+
+  componentDidMount() {
+    fetch('/urls')
+      .then(res => res.json())
+      .then(urls => this.setState({ urls }));
   }
 
   handleURLInput = (e) => {
@@ -43,23 +49,20 @@ class App extends Component {
       pathname = this.state.customLink
     }
 
-    // this.addURL(this.state.urlInput, pathname)
+    this.addURL(this.state.urlInput, pathname)
 
     alert(`Your new link is 'http://localhost:3000/${pathname}'`)
   }
 
-  // addURL = (original, pathname) => {
-  //   const body = { original_url: orginal,
-  //   short_url: pathname }
-  //
-  //   api('POST', { body }, this.postURL);
-  // }
-  //
-  // postURL = (json) => {
-  //   this.setState({
-  //     urls: [...json],
-  //   });
-  // }
+  addURL = (original, pathname) => {
+    const params = { originalURL: original,
+    shortURL: pathname }
+
+    postURL(params).then(json =>
+			this.setState({
+				urls: [...json],
+			}))
+  }
 
   render(){
 
@@ -75,6 +78,10 @@ class App extends Component {
         <Form handleURLInput={this.handleURLInput} handleCustomInput={this.handleCustomInput} handleSubmit={this.handleSubmit} />
       </div>
       </div>
+      <h1>Users</h1>
+       {this.state.urls.map(link =>
+         <div key={link.id}>{link.original_url}, {link.short_url}</div>
+       )}
       </div>
     );
   }
