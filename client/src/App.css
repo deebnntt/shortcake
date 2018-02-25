@@ -24,6 +24,7 @@ body {
 
 a {
   text-decoration: none;
+  color: blue;
 }
 
 a:hover {
@@ -84,12 +85,23 @@ h3 {
   margin: auto;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 60% 40%;
+}
+
+.grid {
+  padding: .8%;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-wrap;      /* CSS3 */
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -pre-wrap;     /* Opera <7 */
+  white-space: -o-pre-wrap;   /* Opera 7 */
+  word-wrap: break-word;      /* IE */
 }
 
 .list {
   margin: auto;
-  width: 35%;
+  width: 40%;
   padding: .5%;
   padding-bottom: 2.5%;
 }
