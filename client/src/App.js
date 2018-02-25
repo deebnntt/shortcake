@@ -12,17 +12,25 @@ class App extends Component {
   }
 
   componentWillMount() {
-    const path = this.props.location.pathname
-    if (path !== "/") {
-      const newpath = atob(path.substring(1))
-      window.location.href = `${newpath}`
-    }
-  }
-
-  componentDidMount() {
     fetch('/urls')
       .then(res => res.json())
       .then(urls => this.setState({ urls }));
+  }
+
+  componentDidUpdate(){
+    const path = this.props.location.pathname
+    if (path !== "/") {
+      const redirect = this.findURL(path.substring(1))
+      window.location.href = `${redirect}`
+    }
+  }
+
+  findURL = (path) => {
+    console.log(path)
+    const redirect = this.state.urls.filter(link => {
+      return link.short_url === path
+      })
+    return redirect[0].original_url
   }
 
   handleURLInput = (e) => {
@@ -73,12 +81,12 @@ class App extends Component {
       <div className="shortcake-pic-div">
         <img src={shortcake} alt="" />
       </div>
-      <h2>Create a shortened link.</h2>
+      <h2>Make your link short and sweet.</h2>
       <div className="form-div">
         <Form handleURLInput={this.handleURLInput} handleCustomInput={this.handleCustomInput} handleSubmit={this.handleSubmit} />
       </div>
       </div>
-      <h1>Users</h1>
+      <h2>Your Shortcakes:</h2>
        {this.state.urls.map(link =>
          <div key={link.id}>{link.original_url}, {link.short_url}</div>
        )}
