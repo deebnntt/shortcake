@@ -1,8 +1,12 @@
 .App {
   text-align: center;
   font-size: medium;
-  font-family: 'Open Sans', sans-serif;
-  border-top: 5px solid #9D4942;
+}
+
+body {
+  background-color: pink;
+  color: red;
+  font-family: 'Raleway', sans-serif;
 }
 
 .body-div {
@@ -19,8 +23,20 @@
 }
 
 h1 {
-  color: #43556A;
+  font-family: 'Bree Serif', serif;
+  color: red;
   font-weight: 300;
+  font-size: 4em;
+}
+
+h2 {
+  font-family: 'Bree Serif', serif;
+  color: red;
+}
+
+h3 {
+  font-family: 'Bree Serif', serif;
+  color: red;
 }
 
 .form-div {
@@ -29,49 +45,44 @@ h1 {
 }
 
 .url-field {
-  border: 1px solid #D8DDE1;
+  font-family: 'Raleway', sans-serif;
+  color: red;
+  border: 2px solid red;
   border-radius: 6px;
   font-size: 1.2em;
-  color: #999999;
-  width: 100%;
-  background-color: #FBFBFB;
+  width: 80%;
   padding: 12px;
-  margin-bottom: 2em;
+  margin-top: 1em;
 }
 
 .submit-button {
-  border: 1px solid #6D322E;
+  font-family: 'Bree Serif', serif;
   border-radius: 6px;
   font-size: 1.2em;
   color: white;
-  width: 108%;
-  background-color: #9D4942;
+  width: 100%;
+  background-color: red;
   padding: 12px;
+  margin-top: 1em;
 }
 
-ul {
-  margin-top: 3em;
-  list-style-type: none;
-  font-size: 1.2em;
-  color: #999999;
-  font-weight: bold;
+.submit-button:hover {
+  cursor: pointer;
+  color: pink;
 }
 
-li {
-  display: inline-block;
-  margin-left: 1.2em;
+.grid-parent {
+  text-align: left;
+  margin: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.gnomify-link {
-  color: #9D4942;
-  font-weight: 600;
-}
-
-.active-link {
-  color: #43556A;
-  font-weight: 600;
-}
-
-.hat-img {
-  width: 1.2em;
+.list {
+  margin: auto;
+  width: 40%;
+  padding: .5%;
+  padding-bottom: 2.5%;
+  background-color: pink;
 }
