@@ -9,7 +9,7 @@ import React from 'react'
      return (
        <div className="grid-parent">
         <div className="grid">{this.props.original}</div>
-         <div className="grid">{baseUrl}{this.props.short}</div>
+         <div className="grid"><a href={this.props.original}>{baseUrl}{this.props.short}</a></div>
        </div>
      )
    }

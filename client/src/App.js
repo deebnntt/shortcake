@@ -52,7 +52,18 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    let newInput
     let pathname
+
+    if (!this.state.urlInput.includes('http://') && !this.state.urlInput.includes('https://')) {
+      newInput = `http://${this.state.urlInput}`
+      console.log(newInput)
+      this.setState({
+        urlInput: newInput
+      })
+    } else {
+      newInput = this.state.urlInput
+    }
 
     if (this.state.customLink.length < 1) {
       pathname = CryptoJS.MD5(this.state.urlInput).toString().substring(0,5)
@@ -60,7 +71,7 @@ class App extends Component {
       pathname = this.state.customLink
     }
 
-    this.addURL(this.state.urlInput, pathname)
+    this.addURL(newInput, pathname)
 
     alert(`Your new link is 'http://localhost:3000/${pathname}'`)
 
@@ -87,7 +98,7 @@ class App extends Component {
         <img src={shortcake} alt="" />
       </div>
       <h2>Make your links short and sweet.</h2>
-      <div cslassName="form-div">
+      <div className="form-div">
         <Form handleURLInput={this.handleURLInput} handleCustomInput={this.handleCustomInput} handleSubmit={this.handleSubmit} />
       </div>
       </div>
