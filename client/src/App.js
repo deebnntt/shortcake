@@ -3,6 +3,7 @@ import Form from './components/form.js'
 import './App.css';
 import shortcake from './shortcake.png'
 import { postURL } from './helpers/api';
+import CryptoJS from 'crypto-js'
 
 class App extends Component {
   state = {
@@ -12,6 +13,7 @@ class App extends Component {
   }
 
   componentWillMount() {
+
     fetch('/urls')
       .then(res => res.json())
       .then(urls => this.setState({ urls }));
@@ -52,7 +54,7 @@ class App extends Component {
     let pathname
 
     if (this.state.customLink.length < 1) {
-      pathname = btoa(this.state.urlInput).substring(0,5)
+      pathname = CryptoJS.MD5(this.state.urlInput).toString().substring(0,5)
     } else {
       pathname = this.state.customLink
     }
@@ -60,6 +62,8 @@ class App extends Component {
     this.addURL(this.state.urlInput, pathname)
 
     alert(`Your new link is 'http://localhost:3000/${pathname}'`)
+
+    e.target.reset();
   }
 
   addURL = (original, pathname) => {

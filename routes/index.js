@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var router = express.Router();
-var app = express();
 
 var urls = [
   { "id": 1, "original_url": 'http://google.com', "short_url": 'cool' }
