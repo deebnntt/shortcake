@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-         //
-         // <div className="grid"><a href={this.props.original}>{baseUrl}{this.props.short}</a></div>
-         //
+
  class LinkCard extends React.Component {
 
    render() {

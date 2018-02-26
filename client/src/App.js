@@ -75,6 +75,9 @@ class App extends Component {
 
     alert(`Your new link is 'http://localhost:3000/${pathname}'`)
 
+    this.setState({
+      customLink: ""
+    })
     e.target.reset();
   }
 

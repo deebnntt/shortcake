@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var router = express.Router();
 
 var urls = [
-  { "id": 1, "original_url": 'http://google.com', "short_url": 'cool' }
+  { "id": 1, "original_url": 'http://daniellebennett.me', "short_url": 'cool' }
 ];
 var initialUrlId = 2;
 
