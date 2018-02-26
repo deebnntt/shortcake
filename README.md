@@ -13,4 +13,4 @@ An experiment in url shortening with React, ReactRouter, and Express.
 7. The app will run on http://localhost:3000/ by default
 8. You can create redirect links and access from http://localhost:3000/(your-new-path) while the Express server is running
 
-![Screenshot](screenshot.png)
+![Screenshot](newscreenshot.png)
